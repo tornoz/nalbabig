@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <header>
+        <h1>Nouvel Atlas de Basse-Bretagne (NALBB)</h1>
+    </header>
+    <main>
+        <form>
+
+            <label for="search">Klask : </label>
+            <input id="search" name="search" type="search"/>
+
+        </form>
+        <div>
+            <ul>
+                {% for kartenn in kartennou %}
+                    <li><div class="niverenn">{{ kartenn.niverenn }}</div><a href="{{ kartenn.url }}"><span class="anv">{{ kartenn.anv }}</span></a></li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+
+    </main>
+    <footer>
+        Graet gant <a href="https://gwenn.meynier.bzh">Gwenn Meynier</a>. tornoz AT gozmail PIK bzh
+
+    </footer>
+
+{% endblock %}
