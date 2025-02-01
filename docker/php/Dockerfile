@@ -8,7 +8,7 @@ RUN apk add --no-cache ca-certificates icu-libs git libtool zlib-dev
 RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS icu-dev
 RUN apk add --no-cache freetype libpng libjpeg libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev
 RUN apk add --no-cache libzip-dev
-RUN apk add --no-cache xvfb ttf-dejavu ttf-droid ttf-freefont ttf-liberation
+RUN apk add --no-cache xvfb ttf-dejavu ttf-droid ttf-freefont ttf-liberation postgresql-dev
 
 #  curl mbstring xml
 
@@ -22,7 +22,7 @@ RUN pecl install -o -f apcu
 RUN docker-php-ext-enable apcu
 RUN docker-php-ext-enable opcache
 RUN docker-php-ext-enable exif
-RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_pgsql
 
 RUN echo "short_open_tag = off" >> /usr/local/etc/php/php.ini
 RUN echo "memory_limit = -1" >> /usr/local/etc/php/php.ini
