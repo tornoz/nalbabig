@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         var term = event.target.value;
         Array.from(anviou).forEach((element) => {
             var listElement = element.parentNode.parentNode;
-            if(element.textContent.includes(term)) {
+            if(element.textContent.toUpperCase().includes(term.toUpperCase())) {
                 listElement.style.display = 'inline-block';
             } else {
                 listElement.style.display = 'none';
